@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ganos Bisiklet | Tekirdağ Bisiklet ve Macera Merkezi</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <style>
+        /* Temel Ayarlar ve Renk Paleti */
+        :root {
+            --primary: #2e7d32; /* Doğa ve Ganos Yeşili */
+            --dark: #1a1a1a;
+            --light: #f5f5f5;
+            --accent: #ff9800; /* Enerjik Turuncu */
+            --text: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* Navigasyon */
+        header {
+            background-color: rgba(26, 26, 26, 0.95);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero (Giriş) Bölümü */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1541614101331-1a5a3a194e92?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding: 0 1rem;
+            padding-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: #fff;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #215422;
+            transform: translateY(-2px);
+        }
+
+        /* Ortak Bölüm Tasarımları */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            color: var(--dark);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Hizmetler / Özellikler */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: #fff;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+
+        /* Hakkımızda Bölümü */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* İletişim Bölümü */
+        .contact-container {
+            display: flex;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .info-item i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            width: 40px;
+        }
+
+        .contact-form {
+            flex: 1.5;
+            min-width: 300px;
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .social-icons {
+            margin-bottom: 1rem;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 1.5rem;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+
+        /* Mobil Uyum Tasarımı */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .about-content, .contact-container {
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="nav-container">
+            <a href="#" class="logo"><i class="fa-solid fa-bicycle"></i> GANOS <span>BİSİKLET</span></a>
+            <ul class="nav-menu">
+                <li><a href="#anasayfa">Anasayfa</a></li>
+                <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="anasayfa" class="hero" style="max-width: 100%; padding: 0;">
+        <div class="hero-content">
+            <h1>Macera Ganos Dağlarında Başlar</h1>
+            <p>Tekirdağ'ın eşsiz doğasında, profesyonel ekipmanlar ve uzman teknik servisimizle sürüş keyfinizi zirveye taşıyın.</p>
+            <a href="#iletisim" class="btn"><i class="fa-solid fa-calendar-check"></i> Bize Ulaşın</a>
+        </div>
+    </section>
+
+    <section id="hizmetler">
+        <h2 class="section-title">Neler Yapıyoruz?</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+                <h3>Profesyonel Servis</h3>
+                <p>Her segmentten bisikletiniz için uzman kadromuzla periyodik bakım, tamir ve parça değişimi hizmeti sunuyoruz.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-store"></i>
+                <h3>Satış & Aksesuar</h3>
+                <p>Dünya markası bisikletler, kasklar, giyim ürünleri ve ihtiyacınız olan tüm yedek parçalar mağazamızda.</p>
+            </div>
+            <div class="service-card">
+                <i class="fa-solid fa-route"></i>
+                <h3>Rota & Rehberlik</h3>
+                <p>Ganos Dağları ve Tekirdağ çevresindeki en güzel dağ bisikleti (MTB) ve yol rotaları için topluluk buluşmaları.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hakkimizda" style="background-color: #fff; max-width: 100%; width: 100%;">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <h2 class="section-title">Biz Kimiz?</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p><strong>Ganos Bisiklet</strong>, Tekirdağ'da bisiklet kültürünü yaygınlaştırmak, doğa tutkunlarını bir araya getirmek ve iki teker üzerinde özgürlüğü deneyimletmek amacıyla <strong>İslam Gölge</strong> tarafından kurulmuştur.</p>
+                    <p>Adımızı aldığımız Ganos Dağları'nın zorlu ve büyüleyici coğrafyasından ilham alarak, hem amatör hem de profesyonel bisikletçilere en doğru ekipmanı ve en güvenilir teknik desteği sağlamayı vizyon ediniyoruz.</p>
+                    <p>Sadece bir dükkan değil; aynı zamanda Tekirdağlı bisiklet severlerin ortak buluşma noktasıyız.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGOtVf8Z3OEZuCnlwbUgtilwsE2qewWif0CvVoKdYSuyAXKmckwMA0sQ-4yPqKMNynGrntiwcB8gnOOx6yPrqqQMErPOM8iUX7Jocd2wchS4RWhFEgM8yhSaGjJ_rmsrGuOyA0z=s680-w680-h510-rw" alt="Ganos Bisiklet Mağaza">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="iletisim">
+        <h2 class="section-title">İletişime Geçin</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Ganos Bisiklet Dünyasına Katılın</h3>
+                <p style="margin-bottom: 2rem; color: #666;">Sorularınız, servis randevuları veya topluluk turlarımız hakkında bilgi almak için bizimle iletişime geçebilirsiniz.</p>
+                
+                <div class="info-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h4>Adres</h4>
+                        <p>Ertuğrul Mahallesi Rakoczi Caddesi Ceylan Apt. B Blok No:56-1A Süleymanpaşa, Tekirdağ, 59100</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h4>Telefon</h4>
+                        <p><a href="tel:+905056449985" style="color: inherit; text-decoration: none;">+90 (505) 644 99 85</a></p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h4>E-posta</h4>
+                        <p><a href="mailto:igolge83@yahoo.com" style="color: inherit; text-decoration: none;">igolge83@yahoo.com</a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="contact-form">
+                <form action="https://formspree.io/f/KOD_GELECEK" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="isim" placeholder="Adınız Soyadınız" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="E-posta Adresiniz" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="konu" placeholder="Konu">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="mesaj" rows="5" placeholder="Mesajınız..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="border: none; width: 100%; cursor: pointer;">Mesaj Gönder</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/ganos_bisiklet/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/GanosBisiklet/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+        <p>&copy; 2026 ganosbisiklet.com. Tüm Hakları Saklıdır.</p>
+        <p style="font-size: 0.8rem; color: #aaa; margin-top: 5px;">Kurucu: İslam Gölge</p>
+    </footer>
+
+</body>
+</html>
