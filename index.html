@@ -116,6 +116,8 @@
             border-radius: 5px;
             font-weight: bold;
             transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
@@ -148,7 +150,7 @@
             border-radius: 2px;
         }
 
-        /* Hizmetler / Özellikler */
+        /* Hizmetler */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -174,12 +176,7 @@
             margin-bottom: 1.5rem;
         }
 
-        .service-card h3 {
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-
-        /* Hakkımızda Bölümü */
+        /* Hakkımızda */
         .about-content {
             display: flex;
             align-items: center;
@@ -192,26 +189,22 @@
             min-width: 300px;
         }
 
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-        }
-
         .about-image {
             flex: 1;
             min-width: 300px;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            text-align: center;
         }
 
         .about-image img {
-            width: 100%;
+            max-width: 100%;
             height: auto;
             display: block;
         }
 
-        /* İletişim Bölümü */
+        /* İletişim */
         .contact-container {
             display: flex;
             gap: 4rem;
@@ -254,12 +247,17 @@
             padding: 0.8rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            outline: none;
             font-size: 1rem;
         }
 
-        .form-group input:focus, .form-group textarea:focus {
-            border-color: var(--primary);
+        /* Harita */
+        .map-wrapper {
+            margin-top: 2rem;
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         /* Footer */
@@ -268,11 +266,6 @@
             color: #fff;
             text-align: center;
             padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        .social-icons {
-            margin-bottom: 1rem;
         }
 
         .social-icons a {
@@ -286,20 +279,11 @@
             color: var(--primary);
         }
 
-        /* Mobil Uyum Tasarımı */
+        /* Mobil Uyum */
         @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-            .hero-content h1 {
-                font-size: 2.3rem;
-            }
-            .section-title {
-                font-size: 2rem;
-            }
-            .about-content, .contact-container {
-                gap: 2rem;
-            }
+            .nav-menu { display: none; }
+            .hero-content h1 { font-size: 2.2rem; }
+            .section-title { font-size: 2rem; }
         }
     </style>
 </head>
@@ -310,7 +294,7 @@
             <a href="#" class="logo"><i class="fa-solid fa-bicycle"></i> GANOS <span>BİSİKLET</span></a>
             <ul class="nav-menu">
                 <li><a href="#anasayfa">Anasayfa</a></li>
-                <li><a href="#hizmetler">Hizmetlerimiz</a></li>
+                <li><a href="#hizmetler">Hizmetler</a></li>
                 <li><a href="#hakkimizda">Hakkımızda</a></li>
                 <li><a href="#iletisim">İletişim</a></li>
             </ul>
@@ -321,7 +305,7 @@
         <div class="hero-content">
             <h1>Macera Ganos Dağlarında Başlar</h1>
             <p>Tekirdağ'ın eşsiz doğasında, profesyonel ekipmanlar ve uzman teknik servisimizle sürüş keyfinizi zirveye taşıyın.</p>
-            <a href="#iletisim" class="btn"><i class="fa-solid fa-calendar-check"></i> Bize Ulaşın</a>
+            <a href="#iletisim" class="btn">Bize Ulaşın</a>
         </div>
     </section>
 
@@ -331,17 +315,17 @@
             <div class="service-card">
                 <i class="fa-solid fa-screwdriver-wrench"></i>
                 <h3>Profesyonel Servis</h3>
-                <p>Her segmentten bisikletiniz için uzman kadromuzla periyodik bakım, tamir ve parça değişimi hizmeti sunuyoruz.</p>
+                <p>Bakım, tamir ve parça değişimi hizmeti sunuyoruz.</p>
             </div>
             <div class="service-card">
                 <i class="fa-solid fa-store"></i>
                 <h3>Satış & Aksesuar</h3>
-                <p>Dünya markası bisikletler, kasklar, giyim ürünleri ve ihtiyacınız olan tüm yedek parçalar mağazamızda.</p>
+                <p>Dünya markası bisikletler ve yedek parçalar mağazamızda.</p>
             </div>
             <div class="service-card">
                 <i class="fa-solid fa-route"></i>
                 <h3>Rota & Rehberlik</h3>
-                <p>Ganos Dağları ve Tekirdağ çevresindeki en güzel dağ bisikleti (MTB) ve yol rotaları için topluluk buluşmaları.</p>
+                <p>Ganos Dağları ve çevresi için en iyi rotalar ve turlar.</p>
             </div>
         </div>
     </section>
@@ -351,12 +335,11 @@
             <h2 class="section-title">Biz Kimiz?</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p><strong>Ganos Bisiklet</strong>, Tekirdağ'da bisiklet kültürünü yaygınlaştırmak, doğa tutkunlarını bir araya getirmek ve iki teker üzerinde özgürlüğü deneyimletmek amacıyla <strong>İslam Gölge</strong> tarafından kurulmuştur.</p>
-                    <p>Adımızı aldığımız Ganos Dağları'nın zorlu ve büyüleyici coğrafyasından ilham alarak, hem amatör hem de profesyonel bisikletçilere en doğru ekipmanı ve en güvenilir teknik desteği sağlamayı vizyon ediniyoruz.</p>
-                    <p>Sadece bir dükkan değil; aynı zamanda Tekirdağlı bisiklet severlerin ortak buluşma noktasıyız.</p>
+                    <p><strong>Ganos Bisiklet</strong>, Tekirdağ'da bisiklet kültürünü yaygınlaştırmak amacıyla <strong>İslam Gölge</strong> tarafından kurulmuştur.</p>
+                    <p>Güvenilir teknik destek ve doğru ekipman vizyonuyla, Tekirdağlı bisiklet severlerin ortak buluşma noktasıyız.</p>
                 </div>
                 <div class="about-image">
-                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGOtVf8Z3OEZuCnlwbUgtilwsE2qewWif0CvVoKdYSuyAXKmckwMA0sQ-4yPqKMNynGrntiwcB8gnOOx6yPrqqQMErPOM8iUX7Jocd2wchS4RWhFEgM8yhSaGjJ_rmsrGuOyA0z=s680-w680-h510-rw" alt="Ganos Bisiklet Mağaza">
+                    <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAGOtVf8Z3OEZuCnlwbUgtilwsE2qewWif0CvVoKdYSuyAXKmckwMA0sQ-4yPqKMNynGrntiwcB8gnOOx6yPrqqQMErPOM8iUX7Jocd2wchS4RWhFEgM8yhSaGjJ_rmsrGuOyA0z=s680-w680-h510-rw" alt="İslam Gölge - Ganos Bisiklet">
                 </div>
             </div>
         </div>
@@ -365,10 +348,19 @@
     <section id="iletisim">
         <h2 class="section-title">İletişime Geçin</h2>
         <div class="contact-container">
+		
             <div class="contact-info">
-                <h3>Ganos Bisiklet Dünyasına Katılın</h3>
-                <p style="margin-bottom: 2rem; color: #666;">Sorularınız, servis randevuları veya topluluk turlarımız hakkında bilgi almak için bizimle iletişime geçebilirsiniz.</p>
-                
+			<div class="map-wrapper">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1204.6775836480572!2d27.5084619!3d40.9727089!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b4612c2fb2900d%3A0x9c7dd2f131bf5fc9!2zR0FOT1MgQsSwU8SwS0xFVA!5e0!3m2!1str!2str!4v1717345678901!5m2!1str!2str" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div><br>
                 <div class="info-item">
                     <i class="fa-solid fa-location-dot"></i>
                     <div>
@@ -390,23 +382,17 @@
                         <p><a href="mailto:igolge83@yahoo.com" style="color: inherit; text-decoration: none;">igolge83@yahoo.com</a></p>
                     </div>
                 </div>
+                
+<!-- Google Harita Entegrasyonu (Nokta Atışı Pinli Model) -->
+
             </div>
             
             <div class="contact-form">
-                <form action="https://formspree.io/f/mwvzgjdg" method="POST">
-                    <div class="form-group">
-                        <input type="text" name="isim" placeholder="Adınız Soyadınız" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="E-posta Adresiniz" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="konu" placeholder="Konu">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="mesaj" rows="5" placeholder="Mesajınız..." required></textarea>
-                    </div>
-                    <button type="submit" class="btn" style="border: none; width: 100%; cursor: pointer;">Mesaj Gönder</button>
+                <form action="https://formspree.io/f/KODUNUZU_BURAYA_YAZIN" method="POST">
+                    <div class="form-group"><input type="text" name="name" placeholder="Adınız" required></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="E-posta" required></div>
+                    <div class="form-group"><textarea name="message" rows="5" placeholder="Mesajınız" required></textarea></div>
+                    <button type="submit" class="btn" style="width: 100%;">Mesaj Gönder</button>
                 </form>
             </div>
         </div>
@@ -417,8 +403,7 @@
             <a href="https://www.instagram.com/ganos_bisiklet/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
             <a href="https://www.facebook.com/GanosBisiklet/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
         </div>
-        <p>&copy; 2026 ganosbisiklet.com. Tüm Hakları Saklıdır.</p>
-        <p style="font-size: 0.8rem; color: #aaa; margin-top: 5px;">Kurucu: İslam Gölge</p>
+        <p>&copy; 2026 ganosbisiklet.com | İslam Gölge</p>
     </footer>
 
 </body>
